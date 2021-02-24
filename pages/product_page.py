@@ -15,3 +15,9 @@ class ProductPage(BasePage):
         product_price=float(self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text.split()[0].replace(",",".").replace("\xa3",""))
         basket_price=float(self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text.split()[0].replace(",",".").replace("\xa3",""))
         assert product_price == basket_price,"Price product {product_price} isn't equal basket price {basket_price}"
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is presented, but should not be"
+    def should_dissapear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+               f"Message on ProductPage (CSS_SELECTOR- {SUCCESS_MESSAGE}) did not disappear"

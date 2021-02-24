@@ -13,4 +13,4 @@ class ProductPageLocators():
     PRODUCT_NAME_IN_MESSAGES_AFTER_ADD=(By.CSS_SELECTOR,"div#messages .alert:nth-child(1) strong")
     PRODUCT_PRICE=(By.CSS_SELECTOR,"table tr:nth-child(4) td")
     BASKET_PRICE=(By.CSS_SELECTOR,".alert-info .alertinner strong")
-    
+    SUCCESS_MESSAGES=
