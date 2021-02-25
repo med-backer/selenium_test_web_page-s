@@ -1,6 +1,5 @@
 from pages.base_page import BasePage
 from pages.locators import LoginPageLocators
-from pages.main_page import MainPage
 class LoginPage(BasePage):
     def should_be_login_page(self):
         self.should_be_login_url()

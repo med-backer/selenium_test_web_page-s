@@ -14,10 +14,12 @@ class ProductPage(BasePage):
     def should_be_price_in_basket_equal_price_product(self):
         product_price=float(self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text.split()[0].replace(",",".").replace("\xa3",""))
         basket_price=float(self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text.split()[0].replace(",",".").replace("\xa3",""))
-        assert product_price == basket_price,"Price product {product_price} isn't equal basket price {basket_price}"
+        assert product_price == basket_price,f"Price product {product_price} isn't equal basket price {basket_price}"
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGES), \
            "Success message is presented, but should not be"
     def should_dissapear_of_success_message(self):
+        CSS_SELECTOR=ProductPageLocators.SUCCESS_MESSAGES[1]
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGES), \
-               f"Message on ProductPage (CSS_SELECTOR- {ProductPageLocators.SUCCESS_MESSAGES[1]}) did not disappear"
+               f"Message on ProductPage (CSS_SELECTOR-{CSS_SELECTOR}) did not disappear"
+   
