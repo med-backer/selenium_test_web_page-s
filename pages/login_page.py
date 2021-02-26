@@ -1,6 +1,17 @@
+import time
 from pages.base_page import BasePage
 from pages.locators import LoginPageLocators
+
 class LoginPage(BasePage):
+    def register_new_user(self,email,password):
+        register_login_input=self.browser.find_element(*LoginPageLocators.REGISTER_LOGIN_INPUT)
+        register_password_input=self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD_INPUT)
+        register_password_repeat_input=self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD_REPEAT_INPUT)
+        register_submit_btn=self.browser.find_element(*LoginPageLocators.REGISTER_SUBMIT_BTN)
+        register_login_input.send_keys(email)
+        register_password_input.send_keys(password)
+        register_password_repeat_input.send_keys(password)
+        register_submit_btn.click()
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
